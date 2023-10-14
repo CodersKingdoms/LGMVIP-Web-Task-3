@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="table.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+</head>
+<body>
+    <h1>Student Enrollment Form</h1>
+    <div class="container">
+    <div class="left box">  
+        <h2>Enroll your Student here! </h2>
+        <table border="4">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <td><input type="text" name="fname" id="fname" required></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Class and Section </th>
+                    <td><input type="text" name="lname" id="lname" required></td>
+                </tr>
+                <tr>
+                    <th>Email </th>
+                    <td><input type="text" name="email" id="email" required></td>
+                </tr>
+                <tr>
+                    <th>Age </th>
+                    <td><input type="text" name="age" id="age" required></td>
+                </tr>
+                <tr id="btna">
+                <td colspan="2"><input type="button" name="button" id="btn" value="ADD"
+                    onclick="AddRow()"></td>
+                    </tr>
+            </tbody>
+        </table>
+        </div>
+        <div class="right box">
+        <h2>Enrolled Students</h2>
+        <table border="4" id="show">
+            <thead>
+                <tr>
+                    <th>Full name</th>
+                    <th>Class</th>
+                    <th>EMAIL</th>
+                    <th>AGE</th>
+                </tr>
+            </thead>
+        </table>
+
+        </div>
+    </div>
+    <script>
+        var list1 =[];
+        var list2 =[];
+        var list3 =[];
+        var list4 =[];
+
+        var n =1;
+        var x =0;
+
+        function AddRow(){
+            var AddRow =document.getElementById('show');
+            var NewRow =AddRow.insertRow(n);
+
+            list1[x] = document.getElementById("fname").value;
+            list2[x] = document.getElementById("lname").value;
+            list3[x] = document.getElementById("email").value;
+            list4[x] = document.getElementById("age").value;
+            
+            var cel1 = NewRow.insertCell(0);
+            var cel2 = NewRow.insertCell(1);
+            var cel3 = NewRow.insertCell(2);
+            var cel4 = NewRow.insertCell(3);
+
+            cel1.innerHTML = list1[x];
+            cel2.innerHTML = list2[x];
+            cel3.innerHTML = list3[x];
+            cel4.innerHTML = list4[x];
+
+            n++;
+            x++;
+        }
+    </script>
+    
+</body>
+</html>
